@@ -88,6 +88,24 @@
             margin-top: 14px;
             font-weight: 600;
         }
+        .gallery-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .gallery-table td { padding: 12px; vertical-align: top; }
+        .event-img {
+            border: 3px solid #3949ab;
+            border-radius: 8px;
+            width: 200px;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto;
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+        }
+        .event-img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(57, 73, 171, 0.3);
+        }
+        .img-caption { font-size: 13px; color: #555; margin-top: 8px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -102,6 +120,7 @@
         <a href="#events">Events</a>
         <a href="#contact">Contact</a>
         <a href="help.html" target="_blank">Help ↗</a>
+        <a href="#gallery">Gallery</a>
     </nav>
 
     <main>
@@ -122,6 +141,65 @@
                      Scroll down to explore and register for upcoming events.
                 </p>
             </div>
+        </section>
+
+        <section id="gallery">
+            <h2>📸 Past Event Gallery</h2>
+
+            <table class="gallery-table">
+                <caption style="font-size:14px; color:#777; padding-top:10px; caption-side:bottom;">
+                    Community Events — Highlights 2024
+                </caption>
+
+                <tr>
+                    <td>
+                        <img src="https://placehold.co/200x140/3949ab/white?text=Music+Festival"
+                             alt="Annual Music Festival 2024"
+                             title="Annual Music Festival – June 2024"
+                             class="event-img">
+                        <p class="img-caption">🎵 Music Festival</p>
+                    </td>
+                    <td>
+                        <img src="https://placehold.co/200x140/388e3c/white?text=Food+Fair"
+                             alt="Community Food Fair 2024"
+                             title="Community Food Fair – July 2024"
+                             class="event-img">
+                        <p class="img-caption">🍽️ Food Fair</p>
+                    </td>
+                    <td>
+                        <img src="https://placehold.co/200x140/e64a19/white?text=City+Marathon"
+                             alt="City Marathon 2024"
+                             title="City Marathon – August 2024"
+                             class="event-img">
+                        <p class="img-caption">🏃 City Marathon</p>
+                    </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                    <td>
+                        <img src="https://placehold.co/200x140/7b1fa2/white?text=Art+Exhibition"
+                             alt="Art Exhibition 2024"
+                             title="Art Exhibition – September 2024"
+                             class="event-img">
+                        <p class="img-caption">🎨 Art Exhibition</p>
+                    </td>
+                    <td>
+                        <img src="https://placehold.co/200x140/0288d1/white?text=Tech+Fair"
+                             alt="Tech Fair 2024"
+                             title="Tech Fair – October 2024"
+                             class="event-img">
+                        <p class="img-caption">💻 Tech Fair</p>
+                    </td>
+                    <td>
+                        <img src="https://placehold.co/200x140/5d4037/white?text=Winter+Carnival"
+                             alt="Winter Carnival 2024"
+                             title="Winter Carnival – December 2024"
+                             class="event-img">
+                        <p class="img-caption">❄️ Winter Carnival</p>
+                    </td>
+                </tr>
+            </table>
         </section>
 
         <section id="events">
