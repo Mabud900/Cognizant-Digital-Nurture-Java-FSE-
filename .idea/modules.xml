@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Digital Nurture Java FSE.iml" filepath="$PROJECT_DIR$/.idea/Digital Nurture Java FSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Deepskilling/Module 1- Design Pattern &amp; Principles/FactoryMethodPatternExample/FactoryMethodPatternExample.iml" filepath="$PROJECT_DIR$/Deepskilling/Module 1- Design Pattern &amp; Principles/FactoryMethodPatternExample/FactoryMethodPatternExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Deepskilling/Module 1- Design Pattern &amp; Principles/SingletonPatternExample/SingletonPatternExample.iml" filepath="$PROJECT_DIR$/Deepskilling/Module 1- Design Pattern &amp; Principles/SingletonPatternExample/SingletonPatternExample.iml" />
+    </modules>
+  </component>
+</project>
