@@ -106,6 +106,40 @@
             box-shadow: 0 6px 18px rgba(57, 73, 171, 0.3);
         }
         .img-caption { font-size: 13px; color: #555; margin-top: 8px; font-style: italic; }
+
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block; font-weight: 600;
+            color: #1a237e; margin-bottom: 6px; font-size: 14px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%; padding: 10px 13px;
+            border: 2px solid #c5cae9; border-radius: 7px;
+            font-size: 15px; font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #3949ab;
+            box-shadow: 0 0 0 3px rgba(57, 73, 171, 0.15);
+            outline: none;
+        }
+        .btn-primary {
+            background-color: #3949ab; color: white;
+            padding: 12px 30px; border: none; border-radius: 7px;
+            font-size: 15px; font-weight: 600; cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background-color: #1a237e; }
+        #confirmationMsg {
+            display: none; margin-top: 20px; padding: 16px;
+            background: #e8f5e9; border: 2px solid #4caf50;
+            border-radius: 8px; color: #1b5e20;
+            font-size: 15px; line-height: 1.8;
+        }
     </style>
 </head>
 <body>
@@ -148,7 +182,7 @@
 
             <table class="gallery-table">
                 <caption style="font-size:14px; color:#777; padding-top:10px; caption-side:bottom;">
-                    Community Events — Highlights 2024
+                    Community Events - Highlights 2025
                 </caption>
 
                 <tr>
@@ -203,13 +237,54 @@
         </section>
 
         <section id="events">
-            <h2>Events</h2>
-            <p>Event registration form coming soon - Day 5!</p>
-        </section>
+            <h2>📋 Event Registration</h2>
 
-        <section id="contact">
-            <h2> Contact Us</h2>
-            <p>Email: <a href="mailto:council@muzaffarpur.gov">council@muzaffarpur.gov</a></p>
+            <form id="registrationForm" onsubmit="handleFormSubmit(event)">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName"
+                           placeholder="e.g., Md Mabud"
+                           required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="e.g., mdmabud.mail56@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Preferred Date:</label>
+                    <input type="date" id="eventDate" name="eventDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventType">Event Type:</label>
+                    <select id="eventType" name="eventType" required>
+                        <option value="">-- Select an Event --</option>
+                        <option value="Music Festival">🎵 Music Festival</option>
+                        <option value="Food Fair">🍽️ Food Fair</option>
+                        <option value="Marathon">🏃 City Marathon</option>
+                        <option value="Art Exhibition">🎨 Art Exhibition</option>
+                        <option value="Tech Fair">💻 Tech Fair</option>
+                        <option value="Winter Carnival">❄️ Winter Carnival</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Special Requests / Message:</label>
+                    <textarea id="message" name="message" rows="3"
+                              placeholder="Any dietary requirements, accessibility needs, or questions?">
+                    </textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Register Now</button>
+
+                <!-- Q5: <output> shows confirmation after submit -->
+                <output id="confirmationMsg" name="result" for="registrationForm"></output>
+
+            </form>
         </section>
 
     </main>
@@ -217,6 +292,28 @@
     <footer>
         <p>&copy; 2026 Local City Council. All rights reserved.</p>
     </footer>
+
+    <script>
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name      = document.getElementById('fullName').value;
+            const email     = document.getElementById('email').value;
+            const eventType = document.getElementById('eventType').value;
+            const eventDate = document.getElementById('eventDate').value;
+
+            const output = document.getElementById('confirmationMsg');
+            output.innerHTML = `
+                <strong>🎉 Registration Confirmed!</strong><br>
+                👤 Name: <strong>${name}</strong><br>
+                📧 Email: <strong>${email}</strong><br>
+                🎪 Event: <strong>${eventType}</strong><br>
+                📅 Date: <strong>${eventDate}</strong><br>
+                <em>A confirmation email will be sent to ${email}.</em>
+            `;
+            output.style.display = 'block';
+            output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
 
 </body>
 </html>
