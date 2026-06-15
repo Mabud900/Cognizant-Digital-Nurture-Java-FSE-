@@ -140,6 +140,20 @@
             border-radius: 8px; color: #1b5e20;
             font-size: 15px; line-height: 1.8;
         }
+
+        .btn-secondary {
+            background-color: #546e7a; color: white;
+            padding: 10px 24px; border: none; border-radius: 7px;
+            font-size: 14px; cursor: pointer; transition: background 0.2s;
+        }
+        .btn-secondary:hover { background-color: #37474f; }
+        .field-msg { font-size: 13px; margin-top: 6px; min-height: 20px; }
+        .char-counter { font-size: 12px; color: #888; text-align: right; margin-top: 4px; }
+        #videoStatus { font-size: 14px; color: #666; margin-bottom: 10px; }
+        video {
+            border-radius: 10px; border: 3px solid #3949ab;
+            width: 100%; display: block;
+        }
     </style>
 </head>
 <body>
@@ -155,6 +169,8 @@
         <a href="#contact">Contact</a>
         <a href="help.html" target="_blank">Help ↗</a>
         <a href="#gallery">Gallery</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#promo">Video</a>
     </nav>
 
     <main>
@@ -178,7 +194,7 @@
         </section>
 
         <section id="gallery">
-            <h2>📸 Past Event Gallery</h2>
+            <h2> Past Event Gallery</h2>
 
             <table class="gallery-table">
                 <caption style="font-size:14px; color:#777; padding-top:10px; caption-side:bottom;">
@@ -191,53 +207,52 @@
                              alt="Annual Music Festival 2024"
                              title="Annual Music Festival – June 2024"
                              class="event-img">
-                        <p class="img-caption">🎵 Music Festival</p>
+                        <p class="img-caption"> Music Festival</p>
                     </td>
                     <td>
                         <img src="https://placehold.co/200x140/388e3c/white?text=Food+Fair"
                              alt="Community Food Fair 2024"
                              title="Community Food Fair – July 2024"
                              class="event-img">
-                        <p class="img-caption">🍽️ Food Fair</p>
+                        <p class="img-caption"> Food Fair</p>
                     </td>
                     <td>
                         <img src="https://placehold.co/200x140/e64a19/white?text=City+Marathon"
                              alt="City Marathon 2024"
                              title="City Marathon – August 2024"
                              class="event-img">
-                        <p class="img-caption">🏃 City Marathon</p>
+                        <p class="img-caption"> City Marathon</p>
                     </td>
                 </tr>
 
-                <!-- Row 2 -->
                 <tr>
                     <td>
                         <img src="https://placehold.co/200x140/7b1fa2/white?text=Art+Exhibition"
                              alt="Art Exhibition 2024"
                              title="Art Exhibition – September 2024"
                              class="event-img">
-                        <p class="img-caption">🎨 Art Exhibition</p>
+                        <p class="img-caption"> Art Exhibition</p>
                     </td>
                     <td>
                         <img src="https://placehold.co/200x140/0288d1/white?text=Tech+Fair"
                              alt="Tech Fair 2024"
                              title="Tech Fair – October 2024"
                              class="event-img">
-                        <p class="img-caption">💻 Tech Fair</p>
+                        <p class="img-caption"> Tech Fair</p>
                     </td>
                     <td>
                         <img src="https://placehold.co/200x140/5d4037/white?text=Winter+Carnival"
                              alt="Winter Carnival 2024"
                              title="Winter Carnival – December 2024"
                              class="event-img">
-                        <p class="img-caption">❄️ Winter Carnival</p>
+                        <p class="img-caption"> Winter Carnival</p>
                     </td>
                 </tr>
             </table>
         </section>
 
         <section id="events">
-            <h2>📋 Event Registration</h2>
+            <h2> Event Registration</h2>
 
             <form id="registrationForm" onsubmit="handleFormSubmit(event)">
 
@@ -263,12 +278,12 @@
                     <label for="eventType">Event Type:</label>
                     <select id="eventType" name="eventType" required>
                         <option value="">-- Select an Event --</option>
-                        <option value="Music Festival">🎵 Music Festival</option>
-                        <option value="Food Fair">🍽️ Food Fair</option>
-                        <option value="Marathon">🏃 City Marathon</option>
-                        <option value="Art Exhibition">🎨 Art Exhibition</option>
-                        <option value="Tech Fair">💻 Tech Fair</option>
-                        <option value="Winter Carnival">❄️ Winter Carnival</option>
+                        <option value="Music Festival"> Music Festival</option>
+                        <option value="Food Fair"> Food Fair</option>
+                        <option value="Marathon"> City Marathon</option>
+                        <option value="Art Exhibition"> Art Exhibition</option>
+                        <option value="Tech Fair"> Tech Fair</option>
+                        <option value="Winter Carnival"> Winter Carnival</option>
                     </select>
                 </div>
 
@@ -281,10 +296,79 @@
 
                 <button type="submit" class="btn-primary">Register Now</button>
 
-                <!-- Q5: <output> shows confirmation after submit -->
                 <output id="confirmationMsg" name="result" for="registrationForm"></output>
 
             </form>
+        </section>
+
+        <section id="feedback">
+            <h2> Event Feedback</h2>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone"
+                       placeholder="e.g., 9876543210"
+                       onblur="validatePhone(this)">
+                <p id="phoneMsg" class="field-msg"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="feedbackEvent">Select Event to View Entry Fee:</label>
+                <select id="feedbackEvent" onchange="showEventFee(this)">
+                    <option value="">-- Choose an Event --</option>
+                    <option value="Music Festival"  data-fee="Free"> Music Festival</option>
+                    <option value="Food Fair"       data-fee="₹50"> Food Fair</option>
+                    <option value="Marathon"        data-fee="₹100"> City Marathon</option>
+                    <option value="Art Exhibition"  data-fee="Free"> Art Exhibition</option>
+                    <option value="Tech Fair"       data-fee="₹200"> Tech Fair</option>
+                    <option value="Winter Carnival" data-fee="₹75"> Winter Carnival</option>
+                </select>
+                <p id="feeDisplay" class="field-msg"></p>
+            </div>
+
+            <div class="form-group">
+                <label for="feedbackText">Your Feedback:</label>
+                <textarea id="feedbackText" rows="4"
+                          placeholder="Tell us about your experience at the event..."
+                          onkeyup="countChars(this)" maxlength="300">
+                </textarea>
+                <p id="charCount" class="char-counter">0 / 300 characters</p>
+            </div>
+
+            <div style="text-align:center; margin:16px 0;">
+                <img id="eventThumb"
+                     src="https://placehold.co/220x140/3949ab/white?text=Event+Preview"
+                     alt="Event Preview Photo"
+                     title="Double-click to enlarge"
+                     ondblclick="toggleEnlargeImage(this)"
+                     class="event-img"
+                     style="cursor:zoom-in;">
+                <p class="img-caption"> Double-click the image to enlarge / restore</p>
+            </div>
+
+            <button class="btn-secondary" onclick="submitFeedback()">
+                 Submit Feedback
+            </button>
+            <p id="feedbackConfirm" class="field-msg"></p>
+        </section>
+
+        <section id="promo">
+            <h2> Event Promo Video</h2>
+            <p id="videoStatus">⏳ Loading video...</p>
+
+            <video id="promoVideo" controls
+                   oncanplay="videoReady()"
+                   onended="videoEnded()">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/movie.ogg"    type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+
+        <section id="contact">
+            <h2> Contact Us</h2>
+            <p>Email: <a href="mailto:council@muzaffarpur.gov">council@muzaffarpur.gov</a></p>
         </section>
 
     </main>
@@ -303,16 +387,95 @@
 
             const output = document.getElementById('confirmationMsg');
             output.innerHTML = `
-                <strong>🎉 Registration Confirmed!</strong><br>
-                👤 Name: <strong>${name}</strong><br>
-                📧 Email: <strong>${email}</strong><br>
-                🎪 Event: <strong>${eventType}</strong><br>
-                📅 Date: <strong>${eventDate}</strong><br>
+                <strong> Registration Confirmed!</strong><br>
+                Name: <strong>${name}</strong><br>
+                Email: <strong>${email}</strong><br>
+                Event: <strong>${eventType}</strong><br>
+                Date: <strong>${eventDate}</strong><br>
                 <em>A confirmation email will be sent to ${email}.</em>
             `;
             output.style.display = 'block';
             output.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
+
+        function validatePhone(input) {
+            const msg   = document.getElementById('phoneMsg');
+            const phone = input.value.trim();
+            if (!phone) { msg.textContent = ''; return; }
+            if (/^[6-9]\d{9}$/.test(phone)) {
+                msg.textContent = ' Valid phone number';
+                msg.style.color = '#2e7d32';
+                input.style.borderColor = '#4caf50';
+            } else {
+                msg.textContent = ' Enter a valid 10-digit mobile number';
+                msg.style.color  = '#c62828';
+                input.style.borderColor = '#ef5350';
+            }
+        }
+
+        function showEventFee(select) {
+            const display = document.getElementById('feeDisplay');
+            if (select.value) {
+                const fee = select.options[select.selectedIndex].getAttribute('data-fee');
+                display.innerHTML = ` Entry Fee for <strong>${select.value}</strong>: <strong>${fee}</strong>`;
+                display.style.color = '#1a237e';
+            } else {
+                display.textContent = '';
+            }
+        }
+
+        function submitFeedback() {
+            const text    = document.getElementById('feedbackText').value.trim();
+            const confirm = document.getElementById('feedbackConfirm');
+            if (text.length > 0) {
+                confirm.innerHTML = ' <strong>Thank you!</strong> Your feedback has been submitted.';
+                confirm.style.color = '#2e7d32';
+            } else {
+                confirm.textContent = ' Please write your feedback before submitting.';
+                confirm.style.color  = '#e65100';
+            }
+        }
+
+        function toggleEnlargeImage(img) {
+            if (img.classList.contains('enlarged')) {
+                img.style.width  = '220px';
+                img.style.height = '140px';
+                img.style.cursor = 'zoom-in';
+                img.classList.remove('enlarged');
+            } else {
+                img.style.width  = '100%';
+                img.style.height = 'auto';
+                img.style.cursor = 'zoom-out';
+                img.classList.add('enlarged');
+            }
+        }
+
+        function countChars(textarea) {
+            const counter = document.getElementById('charCount');
+            const len     = textarea.value.length;
+            counter.textContent  = `${len} / 300 characters`;
+            counter.style.color  = len >= 280 ? '#c62828' : '#888';
+        }
+
+        // ===== Q7: oncanplay — Video is ready =====
+        function videoReady() {
+            const s = document.getElementById('videoStatus');
+            s.textContent  = ' Video ready to play!';
+            s.style.color  = '#2e7d32';
+        }
+
+        function videoEnded() {
+            document.getElementById('videoStatus').textContent =
+                ' Video finished. Click play to replay.';
+        }
+
+        window.addEventListener('beforeunload', function(e) {
+            const name = document.getElementById('fullName').value.trim();
+            if (name.length > 0) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
     </script>
 
 </body>
