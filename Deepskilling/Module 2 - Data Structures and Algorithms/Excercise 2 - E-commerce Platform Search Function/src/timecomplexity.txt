@@ -1,0 +1,9 @@
+Time Complexity Comparison
+Linear Search
+Best case: O(1) → item found at first position
+Average case: O(n)
+Worst case: O(n)
+Binary Search
+Best case: O(1) → item found at middle position
+Average case: O(log n)
+Worst case: O(log n)
