@@ -1,12 +1,14 @@
 package com.mabud.service;
 
 import com.mabud.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class BookService {
-    private BookRepository hygy;
+    private BookRepository bookRepository;
 
-    public void setHygy(BookRepository hygy) {
-        this.hygy = hygy;
+    public void setBookRepository(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    public BookRepository getBookRepository() {
+        return bookRepository;
     }
 }

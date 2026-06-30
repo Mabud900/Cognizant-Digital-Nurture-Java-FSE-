@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         BookService service = context.getBean("BookService", BookService.class);
+        service.getBookRepository().hello();
 
         System.out.println(service);
     }
