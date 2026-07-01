@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean name="BookService" class="com.mabud.service.BookService">
         <property name="bookRepository" ref="BookRepository"/>
+        <constructor-arg ref="BookRepository"></constructor-arg>
     </bean>
     <bean name="BookRepository" class="com.mabud.repository.BookRepository"></bean>
 </beans>

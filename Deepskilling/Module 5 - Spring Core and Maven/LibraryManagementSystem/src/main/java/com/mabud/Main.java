@@ -11,7 +11,7 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         BookService service = context.getBean("BookService", BookService.class);
         service.getBookRepository().hello();
-
         System.out.println(service);
+        service.display();
     }
 }
