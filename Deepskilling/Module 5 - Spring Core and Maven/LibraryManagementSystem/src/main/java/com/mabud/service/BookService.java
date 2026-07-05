@@ -15,7 +15,7 @@ public class BookService {
     }
 
     public void display(){
-        System.out.println("Helllo from BookService");
+        System.out.println("Hello from BookService");
     }
 
     public BookRepository getBookRepository() {
