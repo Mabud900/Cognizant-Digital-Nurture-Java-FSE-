@@ -27,6 +27,12 @@ public class HandsOn1SpringDataJpaQuickExampleApplication {
 
         countryService = context.getBean(CountryService.class);
 
+        Country country = new Country();
+        country.setCode("FR");
+        country.setName("France");
+
+        countryService.addCountry(country);
+
         testGetAllCountries();
     }
 
