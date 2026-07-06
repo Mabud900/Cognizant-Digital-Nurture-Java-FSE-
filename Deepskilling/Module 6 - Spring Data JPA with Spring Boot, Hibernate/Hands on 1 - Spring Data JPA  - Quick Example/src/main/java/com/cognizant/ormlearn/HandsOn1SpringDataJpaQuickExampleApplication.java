@@ -20,10 +20,7 @@ public class HandsOn1SpringDataJpaQuickExampleApplication {
 
     public static void main(String[] args) {
 
-        ApplicationContext context =
-                SpringApplication.run(
-                        HandsOn1SpringDataJpaQuickExampleApplication.class,
-                        args);
+        ApplicationContext context = SpringApplication.run(HandsOn1SpringDataJpaQuickExampleApplication.class, args);
 
         countryService = context.getBean(CountryService.class);
 
@@ -32,6 +29,7 @@ public class HandsOn1SpringDataJpaQuickExampleApplication {
         country.setName("France");
 
         countryService.addCountry(country);
+        //countryService.deleteCountry();
 
         testGetAllCountries();
     }

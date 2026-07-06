@@ -11,8 +11,11 @@ import java.util.List;
 @Service
 public class CountryService {
 
-    @Autowired
-    private CountryRepository countryRepository;
+    private final CountryRepository countryRepository;
+
+    CountryService(CountryRepository countryRepository) {
+        this.countryRepository = countryRepository;
+    }
 
     @Transactional
     public List<Country> getAllCountries() {
@@ -21,5 +24,10 @@ public class CountryService {
     @Transactional
     public void addCountry(Country country) {
         countryRepository.save(country);
+    }
+
+    @Transactional
+    public void deleteCountry(){
+        countryRepository.deleteAllInBatch();
     }
 }
