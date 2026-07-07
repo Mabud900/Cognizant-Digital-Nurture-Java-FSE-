@@ -23,14 +23,17 @@ public class CountryService {
     public List<Country> getAllCountries() {
         return countryRepository.findAll();
     }
-    @Transactional
+    /*@Transactional
     public void addCountry(Country country) {
         countryRepository.save(country);
-    }
+    }*/
 
     @Transactional
     public void deleteCountry(){
         countryRepository.deleteAllInBatch();
+    }
+    public void addCountry(Country country){
+        countryRepository.save(country);
     }
 
     @Transactional

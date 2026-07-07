@@ -29,7 +29,12 @@ public class HandsOn1SpringDataJpaQuickExampleApplication {
         country.setCode("FR");
         country.setName("France");
 
+        Country mycountry=new Country();
+        mycountry.setCode("PK");
+        mycountry.setName("Pakistan");
+
         countryService.addCountry(country);
+        countryService.addCountry(mycountry);
         //countryService.deleteCountry();
 
         testGetAllCountries();
@@ -59,10 +64,21 @@ public class HandsOn1SpringDataJpaQuickExampleApplication {
         //invalid case
         try {
             Country country = countryService.findCountryByCode("HI");
-            LOGGER.debug("Country:{}", country);
+            LOGGER.debug("Country: {}", country);
         } catch (CountryNotFoundException e2) {
             LOGGER.error("Country not found", e2);
         }
+
+        //one more valid case
+        try{
+            Country mycountry=countryService.findCountryByCode("PK");
+            LOGGER.debug("Country:{}",mycountry);
+        }
+        catch(CountryNotFoundException e3){
+            LOGGER.info("Country Found",e3);
+        }
+
         LOGGER.info("End");
+
     }
 }
