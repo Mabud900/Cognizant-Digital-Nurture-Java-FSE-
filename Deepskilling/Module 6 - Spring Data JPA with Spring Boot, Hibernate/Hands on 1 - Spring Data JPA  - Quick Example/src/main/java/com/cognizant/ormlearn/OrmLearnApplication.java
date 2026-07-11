@@ -12,16 +12,16 @@ import org.springframework.context.ApplicationContext;
 import java.util.List;
 
 @SpringBootApplication
-public class HandsOn1SpringDataJpaQuickExampleApplication {
+public class OrmLearnApplication {
 
     private static final Logger LOGGER =
-            LoggerFactory.getLogger(HandsOn1SpringDataJpaQuickExampleApplication.class);
+            LoggerFactory.getLogger(OrmLearnApplication.class);
 
     private static CountryService countryService;
 
     public static void main(String[] args) {
 
-        ApplicationContext context = SpringApplication.run(HandsOn1SpringDataJpaQuickExampleApplication.class, args);
+        ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
 
         countryService = context.getBean(CountryService.class);
 
