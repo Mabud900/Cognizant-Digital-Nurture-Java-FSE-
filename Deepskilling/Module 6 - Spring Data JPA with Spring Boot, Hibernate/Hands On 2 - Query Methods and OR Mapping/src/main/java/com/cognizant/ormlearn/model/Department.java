@@ -1,4 +1,26 @@
 package com.cognizant.ormlearn.model;
 
-public class Department {
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name="department")
+@Getter
+@Setter
+public class Department{
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="dp_id")
+    private int id;
+
+    @Column(name="dp_name")
+    private String name;
+
+    @Override
+    public String toString() {
+        return "Department {" + "id=" + id +", name="+name+" }";
+    }
 }

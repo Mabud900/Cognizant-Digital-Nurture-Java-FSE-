@@ -1,9 +1,14 @@
 package com.cognizant.ormlearn;
 
 import com.cognizant.ormlearn.model.Country;
+import com.cognizant.ormlearn.model.Department;
+import com.cognizant.ormlearn.model.Employee;
 import com.cognizant.ormlearn.model.Stock;
 import com.cognizant.ormlearn.repository.CountryRepository;
 import com.cognizant.ormlearn.repository.StockRepository;
+import com.cognizant.ormlearn.service.DepartmentService;
+import com.cognizant.ormlearn.service.EmployeeService;
+import com.cognizant.ormlearn.service.SkillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -23,10 +28,18 @@ public class OrmLearnApplication {
 
     private static StockRepository mystockrepo;
 
+    private static EmployeeService employeeService;
+    private static DepartmentService departmentService;
+    private static SkillService skillService;
+
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
         countryRepository = context.getBean(CountryRepository.class);
         mystockrepo=context.getBean(StockRepository.class);
+
+        employeeService=context.getBean(EmployeeService.class);
+        departmentService=context.getBean(DepartmentService.class);
+        skillService=context.getBean(SkillService.class);
 
         testSearchCountry();
         testSearchCountrySorted();
@@ -35,6 +48,10 @@ public class OrmLearnApplication {
         getGoogleAbove1250();
         returnTop3DatesByVolume();
         getNetflix3LowestPrice();
+
+        testGetEmployee();
+        testAddEmployee();
+        testUpdateEmployee();
     }
 
     private static void testSearchCountry() {
@@ -82,7 +99,6 @@ public class OrmLearnApplication {
         result.forEach(s -> LOGGER.debug("{}", s));
         LOGGER.info("END");
     }
-
     //Identify three dates when Netflix stocks were the lowest
     private static void getNetflix3LowestPrice(){
         LOGGER.info("Start");
@@ -90,4 +106,48 @@ public class OrmLearnApplication {
         result.forEach(s->LOGGER.debug("{}",s));
         LOGGER.info("End");
     }
+
+    //get employee joining department with many-to-one relationship
+    private static void testGetEmployee() {
+
+        LOGGER.info("Start");
+
+        Employee employee =
+                employeeService.get(1);
+
+        LOGGER.debug("Employee:{}", employee);
+
+        LOGGER.debug("Department:{}",
+                employee.getDepartment());
+
+        LOGGER.info("End");
+    }
+
+    //Add Employee
+    private static void testAddEmployee() {
+
+        LOGGER.info("Start");
+
+        Employee employee = new Employee();
+        employee.setName("Mabud");
+        employee.setSalary(50000);
+        employee.setPermanent(true);
+        employee.setDateOfBirth(java.sql.Date.valueOf("1995-06-15"));
+        Department department = departmentService.get(1);
+        employee.setDepartment(department);
+        employeeService.save(employee);
+        LOGGER.debug("Employee: {}", employee);
+        LOGGER.info("End");
+    }
+    //update emplyee
+    private static void testUpdateEmployee() {
+        LOGGER.info("Start");
+        Employee employee = employeeService.get(1);
+        Department department = departmentService.get(3);
+        employee.setDepartment(department);
+        employeeService.save(employee);
+        LOGGER.debug("Employee: {}", employee);
+        LOGGER.info("End");
+    }
+
 }
