@@ -57,9 +57,11 @@ public class OrmLearnApplication {
         testAddSkillToEmployee();
 
         testGetAllPermanentEmployees();
+        testAttempt();
  */
 
-        testAttempt();
+
+        testGetAverageSalary();
 
     }
 
@@ -220,6 +222,13 @@ public class OrmLearnApplication {
             }
             System.out.println();
         }
+        LOGGER.info("End");
+    }
+
+    public static void testGetAverageSalary() {
+        LOGGER.info("Start");
+        double avg = employeeService.getAverageSalary(1);
+        LOGGER.debug("Average Salary:{}", avg);
         LOGGER.info("End");
     }
 

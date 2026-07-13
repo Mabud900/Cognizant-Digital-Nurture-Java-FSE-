@@ -33,4 +33,10 @@ public class EmployeeService {
         return employeeRepository.getAllPermanentEmployees();
     }
 
+    @Transactional
+    public double getAverageSalary(int id) {
+        LOGGER.info("Start");
+        return employeeRepository.getAverageSalary(id);
+    }
+
 }
