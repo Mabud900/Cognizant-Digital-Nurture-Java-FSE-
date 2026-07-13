@@ -3,6 +3,7 @@ package com.cognizant.ormlearn;
 import com.cognizant.ormlearn.model.*;
 import com.cognizant.ormlearn.repository.CountryRepository;
 import com.cognizant.ormlearn.repository.StockRepository;
+import com.cognizant.ormlearn.service.AttemptService;
 import com.cognizant.ormlearn.service.DepartmentService;
 import com.cognizant.ormlearn.service.EmployeeService;
 import com.cognizant.ormlearn.service.SkillService;
@@ -24,6 +25,7 @@ public class OrmLearnApplication {
     private static CountryRepository countryRepository;
 
     private static StockRepository mystockrepo;
+    private static AttemptService attemptService;
 
     private static EmployeeService employeeService;
     private static DepartmentService departmentService;
@@ -37,6 +39,7 @@ public class OrmLearnApplication {
         employeeService=context.getBean(EmployeeService.class);
         departmentService=context.getBean(DepartmentService.class);
         skillService=context.getBean(SkillService.class);
+        attemptService = context.getBean(AttemptService.class);
 /*
         testSearchCountry();
         testSearchCountrySorted();
@@ -52,8 +55,12 @@ public class OrmLearnApplication {
 
         testGetDepartment();
         testAddSkillToEmployee();
- */
+
         testGetAllPermanentEmployees();
+ */
+
+        testAttempt();
+
     }
 
     private static void testSearchCountry() {
@@ -184,6 +191,35 @@ public class OrmLearnApplication {
         List<Employee> employees = employeeService.getAllPermanentEmployees();
         LOGGER.debug("Permanent Employees:{}", employees);
         employees.forEach(e -> LOGGER.debug("Skills:{}", e.getSkillList()));
+        LOGGER.info("End");
+    }
+
+    public static void testAttempt() {
+        LOGGER.info("Start");
+        Attempt attempt = attemptService.getAttempt(1, 1);
+
+        System.out.println("\n--- Quiz Attempt Details ---");
+        System.out.println("Username: " + attempt.getUser().getUserName());
+        System.out.println("Attempted Date: " + attempt.getAttemptedDate() + "\n");
+
+        for (AttemptQuestion aq : attempt.getAttemptQuestionList()) {
+            System.out.println(aq.getQuestion().getQuestionText());
+
+            int optionCount = 1;
+            for (Option o : aq.getQuestion().getOptions()) {
+                boolean isSelected = false;
+                // Check if this option was selected in the attempt
+                for (AttemptOption ao : aq.getAttemptOptionList()) {
+                    if (ao.getOption().getId() == o.getId()) {
+                        isSelected = true;
+                        break;
+                    }
+                }
+                System.out.println(optionCount + ") " + o.getOptionText() + "\t\t" + o.getScore() + "\t" + isSelected);
+                optionCount++;
+            }
+            System.out.println();
+        }
         LOGGER.info("End");
     }
 
