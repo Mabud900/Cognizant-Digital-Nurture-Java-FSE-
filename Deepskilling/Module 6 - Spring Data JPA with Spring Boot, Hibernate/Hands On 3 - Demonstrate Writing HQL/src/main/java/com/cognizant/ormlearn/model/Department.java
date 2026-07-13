@@ -26,8 +26,7 @@ public class Department{
     @OneToMany(mappedBy = "department")
      */
     @OneToMany(
-            mappedBy = "department",
-            fetch = FetchType.EAGER
+            mappedBy = "department"
     )
     private Set<Employee> employeeList;
 

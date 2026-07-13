@@ -37,7 +37,7 @@ public class OrmLearnApplication {
         employeeService=context.getBean(EmployeeService.class);
         departmentService=context.getBean(DepartmentService.class);
         skillService=context.getBean(SkillService.class);
-
+/*
         testSearchCountry();
         testSearchCountrySorted();
         testCountryByLetter();
@@ -52,8 +52,8 @@ public class OrmLearnApplication {
 
         testGetDepartment();
         testAddSkillToEmployee();
-
-
+ */
+        testGetAllPermanentEmployees();
     }
 
     private static void testSearchCountry() {
@@ -176,6 +176,14 @@ public class OrmLearnApplication {
 
         employeeService.save(employee);
 
+        LOGGER.info("End");
+    }
+
+    public static void testGetAllPermanentEmployees() {
+        LOGGER.info("Start");
+        List<Employee> employees = employeeService.getAllPermanentEmployees();
+        LOGGER.debug("Permanent Employees:{}", employees);
+        employees.forEach(e -> LOGGER.debug("Skills:{}", e.getSkillList()));
         LOGGER.info("End");
     }
 
