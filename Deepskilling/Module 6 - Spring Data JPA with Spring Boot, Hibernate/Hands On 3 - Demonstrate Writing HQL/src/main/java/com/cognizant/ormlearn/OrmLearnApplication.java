@@ -58,11 +58,9 @@ public class OrmLearnApplication {
 
         testGetAllPermanentEmployees();
         testAttempt();
+         testGetAverageSalary();
  */
-
-
-        testGetAverageSalary();
-
+        testGetAllEmployeesNative();
     }
 
     private static void testSearchCountry() {
@@ -229,6 +227,13 @@ public class OrmLearnApplication {
         LOGGER.info("Start");
         double avg = employeeService.getAverageSalary(1);
         LOGGER.debug("Average Salary:{}", avg);
+        LOGGER.info("End");
+    }
+
+    public static void testGetAllEmployeesNative() {
+        LOGGER.info("Start");
+        List<Employee> employees = employeeService.getAllEmployeesNative();
+        LOGGER.debug("Employees:{}", employees);
         LOGGER.info("End");
     }
 

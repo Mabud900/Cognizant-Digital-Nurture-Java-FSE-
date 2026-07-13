@@ -39,4 +39,9 @@ public class EmployeeService {
         return employeeRepository.getAverageSalary(id);
     }
 
+    @Transactional
+    public List<Employee> getAllEmployeesNative() {
+        return employeeRepository.getAllEmployeesNative();
+    }
+
 }
