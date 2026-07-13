@@ -59,8 +59,9 @@ public class OrmLearnApplication {
         testGetAllPermanentEmployees();
         testAttempt();
          testGetAverageSalary();
+         testGetAllEmployeesNative();
  */
-        testGetAllEmployeesNative();
+        testCriteriaQuery();
     }
 
     private static void testSearchCountry() {
@@ -74,6 +75,14 @@ public class OrmLearnApplication {
         LOGGER.info("Start");
         List<Country> results = countryRepository.findByNameContainingOrderByNameAsc("ou");
         results.forEach(c -> LOGGER.debug("{}", c));
+        LOGGER.info("End");
+    }
+
+    public static void testCriteriaQuery() {
+        LOGGER.info("Start");
+        // Example: get all permanent employees whose name contains 'a' in department 1
+        List<Employee> employees = employeeService.getEmployeesByCriteria("a", 1, true);
+        LOGGER.debug("Employees:{}", employees);
         LOGGER.info("End");
     }
 
