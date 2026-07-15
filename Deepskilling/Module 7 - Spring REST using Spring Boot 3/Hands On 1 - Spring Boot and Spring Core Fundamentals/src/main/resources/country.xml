@@ -8,7 +8,7 @@
  https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="country"
-          class="com.cognizant.springlearn.Country">
+          class="com.cognizant.springlearn.Country" scope="prototype"><!--without scope spring uses default which is singleton-->
 
         <property name="code"
                   value="IN"/>
