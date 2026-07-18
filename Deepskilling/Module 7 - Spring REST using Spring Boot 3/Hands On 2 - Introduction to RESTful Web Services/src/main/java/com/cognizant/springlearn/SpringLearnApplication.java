@@ -56,10 +56,10 @@ public class SpringLearnApplication {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("country.xml");
 
-        ArrayList<Country> countries =
-                context.getBean("countryList", ArrayList.class);
-
-        LOGGER.debug("Countries : {}", countries);
+//        ArrayList<Country> countries =
+//                context.getBean("countryList", ArrayList.class);
+//
+//        LOGGER.debug("Countries : {}", countries);
 
         LOGGER.info("END");
     }

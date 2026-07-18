@@ -25,15 +25,4 @@
         <property name="name" value="Japan"/>
     </bean>
 
-    <bean id="countryList" class="java.util.ArrayList">
-        <constructor-arg>
-            <list>
-                <ref bean="in"/>
-                <ref bean="us"/>
-                <ref bean="de"/>
-                <ref bean="jp"/>
-            </list>
-        </constructor-arg>
-    </bean>
-
 </beans>
