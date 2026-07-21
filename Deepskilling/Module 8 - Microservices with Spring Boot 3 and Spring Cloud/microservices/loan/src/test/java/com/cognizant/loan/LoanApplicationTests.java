@@ -1,10 +1,10 @@
-package com.cognizant.account;
+package com.cognizant.loan;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AccontApplicationTests {
+class LoanApplicationTests {
 
     @Test
     void contextLoads() {

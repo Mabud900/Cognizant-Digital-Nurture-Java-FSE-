@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cognizant</groupId>
-    <artifactId>account</artifactId>
+    <artifactId>loan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>account</name>
-    <description>account</description>
+    <name>loan</name>
+    <description>loan</description>
     <url/>
     <licenses>
         <license/>
@@ -52,6 +52,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
