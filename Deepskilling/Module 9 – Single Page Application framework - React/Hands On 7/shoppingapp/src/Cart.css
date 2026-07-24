@@ -1,0 +1,22 @@
+.cart-container {
+    width: fit-content;
+    margin: 20px auto;
+    padding: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+table {
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    color: green
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+h1 {
+    color: green;
+}
