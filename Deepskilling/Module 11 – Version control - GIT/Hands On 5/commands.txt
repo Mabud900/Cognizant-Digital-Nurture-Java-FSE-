@@ -1,0 +1,13 @@
+git status
+
+git branch
+
+git branch -a
+
+git pull origin mainmenu
+
+git status
+
+git push origin mainmenu
+
+git status
