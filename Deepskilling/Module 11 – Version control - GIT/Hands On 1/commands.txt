@@ -1,0 +1,31 @@
+git --version
+
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+
+git config --list
+
+git config --global core.editor notepad++
+
+mkdir GitDemo
+cd GitDemo
+
+git init
+
+echo Welcome to Git > welcome.txt
+
+dir
+
+type welcome.txt
+
+git status
+
+git add welcome.txt
+
+git commit -m "Added welcome file"
+
+git log --oneline
+
+git remote add origin <repository-url>
+
+git push origin main
