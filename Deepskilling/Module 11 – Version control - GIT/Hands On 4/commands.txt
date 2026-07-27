@@ -1,0 +1,49 @@
+git status
+
+git checkout -b GitWork
+
+echo ^<message^>Hello from GitWork^</message^> > hello.xml
+
+echo ^<message^>Updated content from GitWork^</message^> > hello.xml
+
+git add hello.xml
+
+git commit -m "Added hello.xml in GitWork"
+
+git checkout mainmenu
+
+echo ^<message^>Hello from Main Branch^</message^> > hello.xml
+
+git add hello.xml
+
+git commit -m "Added hello.xml in mainmenu"
+
+git log --oneline --graph --decorate --all
+
+git diff mainmenu GitWork
+
+git merge GitWork
+
+type hello.xml
+
+notepad hello.xml
+
+git add hello.xml
+
+git commit -m "Resolved merge conflict"
+
+echo Backup Data > backup.bak
+
+notepad .gitignore
+
+git add .gitignore
+
+git commit -m "Added backup files to gitignore"
+
+git branch
+
+git branch -a
+
+git branch -d GitWork
+
+git log --oneline --graph --decorate
