@@ -1,0 +1,47 @@
+# Branching
+
+git branch GitNewBranch
+
+git branch
+
+git branch -r
+
+git branch -a
+
+git checkout GitNewBranch
+
+git branch
+
+echo Branch Content > branchfile.txt
+
+type branchfile.txt
+
+git add branchfile.txt
+
+git commit -m "Added branch file"
+
+git status
+
+
+# Merging
+
+git checkout mainmenu
+
+git branch
+
+git diff mainmenu GitNewBranch
+
+git merge GitNewBranch
+
+git log --oneline --graph --decorate
+
+git branch -d GitNewBranch
+
+git branch
+
+git status
+
+Note:
+The lab document uses the branch name "master".
+In this repository the main branch is named "mainmenu",
+therefore all operations were performed using "mainmenu".
