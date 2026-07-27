@@ -1,0 +1,15 @@
+echo Application Log > app.log
+
+mkdir logs
+
+echo Error Log > logs\error.log
+
+notepad .gitignore
+
+git status
+
+git add .gitignore
+
+git commit -m "Added gitignore file"
+
+git status
