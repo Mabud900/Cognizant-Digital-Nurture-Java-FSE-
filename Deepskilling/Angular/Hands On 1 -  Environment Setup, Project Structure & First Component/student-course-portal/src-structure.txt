@@ -1,0 +1,48 @@
+Folder PATH listing for volume Academics and insights
+Volume serial number is 00000143 1A36:3E9C
+D:\COGNIZANT\DIGITAL NURTURE JAVA FSE\DEEPSKILLING\ANGULAR\HANDS ON 1 -  ENVIRONMENT SETUP, PROJECT STRUCTURE & FIRST COMPONENT\STUDENT-COURSE-PORTAL\SRC
+�   index.html
+�   main.ts
+�   notes.txt
+�   styles.css
+�   
++---app
+    �   app.component.css
+    �   app.component.html
+    �   app.component.spec.ts
+    �   app.component.ts
+    �   app.config.ts
+    �   app.routes.ts
+    �   
+    +---components
+    �   +---course-card
+    �   �       course-card.component.css
+    �   �       course-card.component.html
+    �   �       course-card.component.spec.ts
+    �   �       course-card.component.ts
+    �   �       
+    �   +---header
+    �           header.component.css
+    �           header.component.html
+    �           header.component.spec.ts
+    �           header.component.ts
+    �           
+    +---pages
+        +---course-list
+        �       course-list.component.css
+        �       course-list.component.html
+        �       course-list.component.spec.ts
+        �       course-list.component.ts
+        �       
+        +---home
+        �       home.component.css
+        �       home.component.html
+        �       home.component.spec.ts
+        �       home.component.ts
+        �       
+        +---student-profile
+                student-profile.component.css
+                student-profile.component.html
+                student-profile.component.spec.ts
+                student-profile.component.ts
+                
