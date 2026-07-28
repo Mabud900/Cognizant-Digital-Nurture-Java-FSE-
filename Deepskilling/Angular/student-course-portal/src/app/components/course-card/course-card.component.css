@@ -1,0 +1,33 @@
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: white;
+  font-size: 0.85em;
+}
+.badge--passed  { background-color: green; }
+.badge--failed  { background-color: red; }
+.badge--pending { background-color: grey; }
+
+.course-card {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 10px 0;
+  max-width: 320px;
+}
+
+.card--enrolled {
+  background-color:yellow;
+}
+
+.card--full {
+  font-weight: bold;
+}
+
+.expanded {
+  min-height: 220px;
+}
+:host {
+  display: block;
+}
