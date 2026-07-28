@@ -10,8 +10,7 @@
     <span *ngSwitchCase="'pending'" class="badge badge--pending">Pending</span>
   </span>
 
-  <button (click)="onEnrollClick()">{{ isEnrolled ? 'Enrolled' : 'Enroll' }}</button>
-  <button (click)="toggleExpand()">Show Details</button>
+  <button (click)="onEnrollClick()">{{ isEnrolled ? 'Unenroll' : 'Enroll' }}</button>
 
   <div *ngIf="isExpanded">
     <p>Extra details go here — full description, instructor, schedule, etc.</p>

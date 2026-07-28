@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseCardComponent } from '../../components/course-card/course-card.component';
 import { HighlightDirective } from '../../directives/highlight.directive';
+import { CourseService } from '../../services/course.service';
+import { Course } from '../../models/course.model';
 
 @Component({
   selector: 'app-course-list',
@@ -10,25 +12,20 @@ import { HighlightDirective } from '../../directives/highlight.directive';
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.css'
 })
-export class CourseListComponent {
-  isLoading=true;
+export class CourseListComponent implements OnInit {
 
-  courses = [
-  { id: 1, name: 'Angular',         code: 'CS101', credits: 4, gradeStatus: 'passed' as const  },
-  { id: 2, name: 'Java',            code: 'CS102', credits: 3, gradeStatus: 'pending'as const },
-  { id: 3, name: 'Spring Boot',     code: 'CS103', credits: 3, gradeStatus: 'failed' as const },
-  { id: 4, name: 'Data Structures', code: 'CS104', credits: 4, gradeStatus: 'passed' as const },
-  { id: 5, name: 'Databases',       code: 'CS105', credits: 3, gradeStatus: 'pending'as const }
-];
-
+  isLoading = true;
+  courses: Course[] = [];
   selectedCourseId: number | null = null;
 
+  constructor(private courseService: CourseService) {}
+
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1500);
+    this.courses = this.courseService.getCourses();
+    setTimeout(() => { this.isLoading = false; }, 1500);
   }
-  trackByCourseId(index: number, course: any): number {
+
+  trackByCourseId(index: number, course: Course): number {
     return course.id;
   }
 
